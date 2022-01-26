@@ -1,5 +1,4 @@
-import { ErrorMessage, Field } from 'formik';
-import React from 'react';
+import {  Field } from 'formik';
 
 type Props = {
     name: string,
@@ -8,8 +7,7 @@ type Props = {
 
 export default function Input({name,value }: Props) {
     return <div className="flex">
-        <label htmlFor={name}>{name}</label>
+        <label htmlFor={name}>{name}:</label>
         <Field type="text"  name={value} id={name}  />
-        <ErrorMessage name={name} component="p" />
     </div>;
 }

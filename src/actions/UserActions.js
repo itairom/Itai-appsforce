@@ -10,7 +10,7 @@ const _updateUser = (user) => ({ type: 'UPDATE_USER', user });
 // THUNK
 export function loadUsers(filterBy) {
     return async (dispatch) => {
-        const users = await userService.query()
+        const users = await userService.query(filterBy)
         dispatch(_setUsers(users));
     }
 }
@@ -19,6 +19,10 @@ export function addUser(user) {
         userService.addUser(user)
         dispatch(_addUser(user));
     }
+}
+
+export function setFilter(filterBy) {
+    return (dispatch) => dispatch(_setFilter(filterBy))
 }
 
 export function updateUser(user) {
@@ -33,23 +37,3 @@ export function removeUser(user) {
         dispatch(_removeUser(user));
     }
 }
-
-// export function removeCar(carId) {
-//     return async (dispatch) => {
-//         carService.remove(carId)
-//         dispatch(_removeCar(carId))
-//     }
-// }
-
-// export function setFilter(filterBy) {
-//     return (dispatch) => dispatch(_setFilter(filterBy))
-// }
-
-
-// export function saveCar(car) {
-//     return async (dispatch,getState) => {
-//         const type = car._id ? 'UPDATE_CAR' : 'ADD_CAR';
-//         const savedCar = await carService.save(car)
-//         dispatch({ type, car: savedCar })
-//     }
-// }

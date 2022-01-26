@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { removeUser } from '../actions/UserActions';
 import { User } from '../Interface/UserInterface';
@@ -9,18 +9,14 @@ type Props = {
 };
 
 export default function UserPreview({ user }: Props) {
-
     const [isEdit, setisEdit] = useState<Boolean>(false);
     const dispatch = useDispatch()
-    useEffect(() => {
-        // console.log(user);
-    }, [user])
 
     const onSetIsEdit = (status: boolean) => {
         setisEdit(status)
     };
 
-    return <div key={user.id.value} className='user-preview flex column'>
+    return <div className='user-preview flex column'>
         <img src={user.picture.medium} alt="profile-img" />
         <div className="user-name">
             <p>{user.name.title}</p>
@@ -44,7 +40,7 @@ export default function UserPreview({ user }: Props) {
             <div className="remove-btn"
                 onClick={() => {
                     dispatch(removeUser(user))
-                }} >Removes</div>
+                }} >Remove</div>
         </div>
         {isEdit && <UserEdit isAddUser={false} onSetIsEdit={onSetIsEdit} user={user} />}
     </div>

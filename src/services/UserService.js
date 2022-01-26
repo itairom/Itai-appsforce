@@ -2,11 +2,7 @@ import axios from "axios";
 import { storageService } from "./storageService";
 
 const STORAGE_KEY = 'users'
-
-// const gDefaultUsers = fetchUsers()
-
 const gUsers = _loadUsers()
-
 
 async function fetchUsers() {
     try {
@@ -20,14 +16,26 @@ async function fetchUsers() {
 
 async function _loadUsers() {
     let users = storageService.loadFromStorage(STORAGE_KEY)
-    // if (!users || !users.length) users = gDefaultUsers
     if (!users || !users.length) users = await fetchUsers()
     storageService.saveToStorage(STORAGE_KEY, users)
     return users
 }
 
-function query() {
-    let usersToReturn = gUsers;
+function query(filterBy) {
+    let users = storageService.loadFromStorage(STORAGE_KEY)
+
+    let usersToReturn = users;
+    if (filterBy && users) {
+        var { email, name, location } = filterBy
+        usersToReturn = users.filter(user => {
+            return (
+                user.email.toLowerCase().includes(email.toLowerCase()) &&
+                user.location.country.toLowerCase().includes(location.toLowerCase()) &&
+                user.name.first.toLowerCase().includes(name.toLowerCase())
+            )
+        })
+    }
+    if (!users) return gUsers
     return usersToReturn
 }
 

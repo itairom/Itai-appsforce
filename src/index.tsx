@@ -10,8 +10,6 @@ import thunk from 'redux-thunk';
 import { HashRouter as Router } from 'react-router-dom';
 import UserReducer from './reducers/UserReducer';
 
-
-
 declare global {
   interface Window {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;

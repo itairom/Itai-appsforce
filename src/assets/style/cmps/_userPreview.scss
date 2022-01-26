@@ -9,7 +9,6 @@
     margin-top: 80px;
     border: 1px solid #7b7b7b;
     box-shadow: 1px 1px 2px 0px;
-
     position: relative;
 
     @include for-narrow-layout {
@@ -25,16 +24,11 @@
         left: 100px;
 
         @include for-narrow-layout {
-            // left: 100px;
             left: 75px;
         }
 
         @include for-normal-layout {
             left: 100px;
-        }
-
-        @include for-wide-layout {
-            // left: 50px;
         }
 
         top: -50px;
@@ -71,6 +65,7 @@
         gap: 40px;
         div {
             background-color: #e6f1e4;
+            color: #3a3939;
             padding: 10px;
 
             &:last-child {

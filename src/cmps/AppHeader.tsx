@@ -5,9 +5,7 @@ import { toggleDark } from '../actions/AppActions'
 import { useDispatch } from 'react-redux'
 import { Link } from "react-router-dom";
 
-type Props = {};
-
-export default function AppHeader({ }: Props) {
+export default function AppHeader() {
 
     const [isMobile, setIsMobile] = useState(false)
     const dispatch = useDispatch()

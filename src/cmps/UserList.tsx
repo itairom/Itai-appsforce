@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { User } from '../Interface/UserInterface';
 import UserPreview from './UserPreview';
 
@@ -7,15 +6,9 @@ type Props = {
 };
 
 export default function UserList({ users }: Props) {
-
-  // useEffect(() => {
-  //   console.log(users);
-  // }, [users]);
-
-
   return <div className='user-list'>
     {users?.map(user => {
-      return <UserPreview user={user} />
+      return <UserPreview key={user.cell} user={user} />
     })}
   </div>;
 }

@@ -1,6 +1,8 @@
 
 const initialState = {
-    users: null
+    users: null,
+    filterBy: null,
+
 }
 
 export default function UserReducer(state = initialState, action) {
@@ -27,6 +29,11 @@ export default function UserReducer(state = initialState, action) {
                     if (action.user.cell === user.cell) return action.user;
                     return user
                 })
+            }
+        case 'SET_FILTER':
+            return {
+                ...state,
+                filterBy: action.filterBy
             }
         default:
             return state;

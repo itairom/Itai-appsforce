@@ -1,10 +1,10 @@
 import React from 'react';
-import { Route, Switch,Router } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import './assets/main.css'
 import './assets/style/main.scss';
 
-import { Home } from './pages/Home';
+import { UserApp } from './pages/UserApp';
 import AppHeader from './cmps/AppHeader';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <AppHeader />
       <Switch>
-        <Route path="/" component={Home} />
+        <Route path="/" component={UserApp} />
       </Switch>
     </div>
   );

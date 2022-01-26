@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useSelector, RootStateOrAny, useDispatch } from "react-redux";
-import { loadUsers } from "../actions/UserActions";
+import { loadUsers, setFilter } from "../actions/UserActions";
 import { User } from "../Interface/UserInterface";
 import { appService } from "../services/AppService";
 import UserEdit from "../cmps/UserEdit";
 import UserList from "../cmps/UserList";
+import UserFiler from "../cmps/UserFiler";
 
-export function Home() {
+export function UserApp() {
     const userTemplate: User = {
         name: {
             first: '',
@@ -33,30 +34,25 @@ export function Home() {
     const [isAdd, setIsAdd] = useState<Boolean>(false);
 
     const { isDark } = useSelector((state: RootStateOrAny) => state.appModule)
-    const { users } = useSelector((state: RootStateOrAny) => state.userModule)
-
-
-    useEffect(() => {
-        dispatch(loadUsers())
-    }, []);
+    const { users, filterBy } = useSelector((state: RootStateOrAny) => state.userModule)
 
     useEffect(() => {
-        console.log(users);
-    }, [users])
+        dispatch(loadUsers(filterBy))
+    }, [filterBy]);
 
     const onSetIsAdd = (status: boolean) => {
         setIsAdd(status)
     };
 
-
     return (
         <section className={isDark ? 'main-container dark' : 'main-container'}>
             <div className='home-container'>
+                <UserFiler onSetFilter={(filterBy: any) => dispatch(setFilter(filterBy))} />
                 <UserList users={users} />
-                <div onClick={() => {
-                    setIsAdd(true)
-                }}
-                    className="add-btn">Add</div>
+                <div className="add-btn"
+                    onClick={() => {
+                        setIsAdd(true)
+                    }}>Add</div>
                 {isAdd && <UserEdit onSetIsAdd={onSetIsAdd} isAddUser={true} user={userTemplate} />}
             </div>
         </section>

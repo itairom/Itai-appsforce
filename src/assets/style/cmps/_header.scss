@@ -32,7 +32,6 @@
 }
 .menu-btn {
     display: none;
-
     @include for-mobile-layout {
         display: block;
     }
@@ -53,7 +52,7 @@
         color: white;
         font-size: 2rem;
         padding: 10px;
-        :hover{
+        :hover {
             cursor: pointer;
         }
     }

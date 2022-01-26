@@ -1,6 +1,7 @@
 .user-list {
     display: grid;
     justify-items: center;
+    margin-bottom: 50px;
     grid-template-columns: 1fr;
     @include for-normal-layout {
         grid-template-columns: 1fr 1fr;
