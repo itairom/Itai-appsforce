@@ -1,4 +1,11 @@
-.user-list{
-    display: flex;
-    flex-wrap: wrap;
+.user-list {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr;
+    @include for-normal-layout {
+        grid-template-columns: 1fr 1fr;
+    }
+    @include for-wide-layout {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }

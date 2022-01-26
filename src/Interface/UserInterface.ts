@@ -4,4 +4,5 @@ export interface User {
     picture: { medium: string }
     location: { street: {name:string}, city: string, country: string },
     id: { name: string, value: string },
+    cell?:string
 }

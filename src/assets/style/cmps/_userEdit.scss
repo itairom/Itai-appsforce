@@ -1,7 +1,12 @@
 .user-edit {
     z-index: 5;
-    position: absolute;
+    // position: absolute;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     height: 400px;
     width: 400px;
     background-color: rgb(184, 114, 114);
+
 }

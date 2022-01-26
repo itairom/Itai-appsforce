@@ -1,6 +1,6 @@
 .main-nav {
     display: flex;
-    background-color: rgb(186, 121, 247);
+    background-color: rgb(98, 147, 138);
     padding: 10px 50px;
     min-height: 10vh;
     justify-content: space-between;
@@ -47,15 +47,14 @@
     top: 0%;
     height: 100vh;
     padding: 0 16px;
-    animation: navanimation 1s forwards;
+    animation: navanimation 0.7s forwards;
 
     a {
         color: white;
         font-size: 2rem;
         padding: 10px;
-
         :hover{
-            
+            cursor: pointer;
         }
     }
 

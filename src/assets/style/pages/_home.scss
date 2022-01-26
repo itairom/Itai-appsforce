@@ -1,4 +1,14 @@
 .home-container{
-    background-color: aqua;
     min-height: 90vh;
+
+    .add-btn{
+
+        background-color: cadetblue;
+        color: white;
+        font-size: 2rem;
+    }
+
+    .modal-container{
+        position: relative;
+    }
 }

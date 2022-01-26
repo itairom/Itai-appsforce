@@ -4,7 +4,7 @@ import './App.css';
 import './assets/main.css'
 import './assets/style/main.scss';
 
-import { Home } from './cmps/Home';
+import { Home } from './pages/Home';
 import AppHeader from './cmps/AppHeader';
 
 function App() {

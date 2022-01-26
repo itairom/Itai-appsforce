@@ -10,24 +10,21 @@ export default function UserReducer(state = initialState, action) {
                 ...state,
                 users: action.users
             }
-        // case 'UPDATE_USER':
-        //     return {
-        //         ...state,
-        //         users: action.users
-        //     }
+        case 'ADD_USER':
+            return {
+                ...state,
+                users: [...state.users, action.user]
+            }
         case 'REMOVE_USER':
             return {
                 ...state,
                 users: state.users.filter(user => user.cell !== action.user.cell)
             }
         case 'UPDATE_USER':
-            console.log( action.user);
             return {
                 ...state,
                 users: state.users.map(user => {
-                    if (action.user.cell === user.cell) {
-                        return action.user; //swap the relevant user with updatedUser (action.user)
-                    }
+                    if (action.user.cell === user.cell) return action.user;
                     return user
                 })
             }

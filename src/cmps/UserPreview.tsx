@@ -20,7 +20,6 @@ export default function UserPreview({ user }: Props) {
         setisEdit(status)
     };
 
-
     return <div key={user.id.value} className='user-preview flex column'>
         <img src={user.picture.medium} alt="profile-img" />
         <div className="user-name">
@@ -28,30 +27,25 @@ export default function UserPreview({ user }: Props) {
             <p>{user.name.first}</p>
             <p>{user.name.last}</p>
         </div>
-        <div className="user-id">
-            <p>{user.id.name}</p>
-            {/* <p>{user.id.value}</p> */}
-        </div>
-        <p>{user.email}</p>
+
+        <p className='user-email'>{user.email}</p>
         <div className="user-location">
-            <p>{user.location.city}</p>
-            <p>{user.location.country}</p>
-            <p>{user.location.street.name}</p>
+            <div className="">
+                <p>{user.location.street.name},</p>
+                <p>{user.location.city} </p>
+            </div>
+            <p className='country'>{user.location.country}</p>
         </div>
-        <div
-            onClick={() => {
-                setisEdit(true)
-            }}
-            className="edit-btn">
-            Edit
+        <div className="btn-container">
+            <div className="edit-btn"
+                onClick={() => {
+                    setisEdit(true)
+                }}> Edit</div>
+            <div className="remove-btn"
+                onClick={() => {
+                    dispatch(removeUser(user))
+                }} >Removes</div>
         </div>
-        <div
-            onClick={() => {
-                dispatch(removeUser(user))
-            }}
-            className="remove-btn">
-            Remove
-        </div>
-        {isEdit && <UserEdit onSetIsEdit={onSetIsEdit} user={user} />}
+        {isEdit && <UserEdit isAddUser={false} onSetIsEdit={onSetIsEdit} user={user} />}
     </div>
 }

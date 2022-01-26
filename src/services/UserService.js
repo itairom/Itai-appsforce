@@ -31,7 +31,26 @@ function query() {
     return usersToReturn
 }
 
+function removeUser(user) {
+    let users = storageService.loadFromStorage(STORAGE_KEY)
+    const filterdUsers = users.filter(u => u.cell !== user.cell)
+    storageService.saveToStorage(STORAGE_KEY, filterdUsers)
+}
+function addUser(user) {
+    let users = storageService.loadFromStorage(STORAGE_KEY)
+    const newUsers = [...users, user]
+    storageService.saveToStorage(STORAGE_KEY, newUsers)
+}
+
+function updateUser(user) {
+    const users = storageService.loadFromStorage(STORAGE_KEY)
+    const newUsers = users.map(User => {
+        if (User.cell === user.cell) return user
+        return User
+    })
+    storageService.saveToStorage(STORAGE_KEY, newUsers)
+}
 
 export const userService = {
-    fetchUsers, query
+    fetchUsers, query, removeUser, addUser, updateUser
 }
