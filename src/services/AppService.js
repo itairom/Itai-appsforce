@@ -7,7 +7,6 @@ function makeId(length = 5) {
     return text;
 }
 
-
 export const appService ={
     makeId
 }
