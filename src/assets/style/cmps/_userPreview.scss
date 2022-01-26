@@ -1,0 +1,32 @@
+.user-preview {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #000000;
+    position: relative;
+    img {
+        position: absolute;
+        left: 70px;
+        top: -50px;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid #000000;
+    }
+
+    .user-name {
+        margin-top: 50px;
+        display: flex;
+        background-color: beige;
+    }
+    .user-id {
+        background-color: darkcyan;
+    }
+    .user-location {
+        background-color: rgba(255, 105, 180, 0.81);
+    }
+}
